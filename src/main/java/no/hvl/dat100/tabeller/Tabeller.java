@@ -95,18 +95,11 @@ public class Tabeller {
 
 	// g)
 	public static boolean erSortert(int[] tabell) {
-
-		boolean sortert = false;
-
-		for (int i = 0; i < tabell.length; i++) {
+		
+		for (int i = 0; i < tabell.length-1; i++) {
 			if (tabell[i] > tabell[i + 1]) {
-				sortert = false;
-			} else {
-				sortert = true;
-			}
-		}
-		return sortert;
-	}
+				 return false;
+			}}return true;}
 
 	// h)
 	public static int[] settSammen(int[] tabell1, int[] tabell2) {
