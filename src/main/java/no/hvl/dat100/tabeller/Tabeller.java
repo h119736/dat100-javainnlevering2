@@ -111,9 +111,6 @@ public class Tabeller {
 	// h)
 	public static int[] settSammen(int[] tabell1, int[] tabell2) {
 
-		// som gitt to tabeller tabell1 og tabell2 som parametre,
-		// returnerer en ny tabell som er sammensetning av de to tabellene gitt med som
-		// parameter.
 
 		int t1 = tabell1.length;
 		int t2 = tabell2.length;
