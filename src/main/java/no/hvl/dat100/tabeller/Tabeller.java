@@ -63,21 +63,14 @@ public class Tabeller {
 	// e)
 	public static int posisjonTall(int[] tabell, int tall) {
 
-		// som returnerer det første index (posisjon) i tabell som inneholder tallet
-		// tall og -1 ellers.
-
 		int i = 0;
 
-		for (i = 0; i < tabell.length;) {
-			if (i == tabell[0]) {
-				i = tabell[0];
-			} else {
-				i = -1;
+		for (i = 0; i < tabell.length; i++) {
+			if (tall == tabell[i]) {
+				return i;
 			}
-
 		}
-		return i;
-
+		return -1;
 	}
 
 	// f)
@@ -87,34 +80,35 @@ public class Tabeller {
 		int n = tabell.length;
 
 		for (int i = n - 1; i > -1; i--) {
-			hjTabell[n - i - 1] = tabell[i];
+			hjTabell[n-i-1] = tabell[i];
 
 		}
-		return tabell;
+		return hjTabell;
 	}
 
 	// g)
 	public static boolean erSortert(int[] tabell) {
-		
-		for (int i = 0; i < tabell.length-1; i++) {
+
+		for (int i = 0; i < tabell.length - 1; i++) {
 			if (tabell[i] > tabell[i + 1]) {
-				 return false;
-			}}return true;}
+				return false;
+			}
+		}
+		return true;
+	}
 
 	// h)
 	public static int[] settSammen(int[] tabell1, int[] tabell2) {
 
-
 		int t1 = tabell1.length;
 		int t2 = tabell2.length;
-		int t3 = t1 + t2;
-		int[] tabell3 = new int[t3];
+		int[] tabell3 = new int[t1 + t2];
 
-		for (int i = 0; i < tabell1.length; i++) {
+		for (int i = 0; i < t1; i++) {
 			tabell3[i] = tabell1[i];
 		}
-		for (int i = 0; i < tabell2.length; i++) {
-			tabell3[i] = tabell2[i];
+		for (int i = 0; i <t2; i++) {
+			tabell3[t1 +i] = tabell2[i];
 		}
 		return tabell3;
 	}
