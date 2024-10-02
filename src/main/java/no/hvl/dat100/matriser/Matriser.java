@@ -16,20 +16,17 @@ public class Matriser {
 	// b)
 	public static String tilStreng(int[][] matrise) {
 
-		// som returnerer en streng-representation av en matrise. Om matrisen er
-		// følgende:
-		// { {1,2,3}, {4,5,6}, {7,8,9} }
-		// 1 2 3 \n4 5 6 \n7 8 9 \n
 
-		String tallTxt = null;
-		String tallTxt1 = null;
+		String tallTxt;
+		String tallTxt1 = "";
 		String a = "\n";
 
 		for (int[] rad : matrise) {
 			for (int x : rad) {
-				tallTxt = " " + x;
+				tallTxt = x + " ";
+				tallTxt1 += tallTxt;
 			}
-			tallTxt1 = tallTxt + a;
+			tallTxt1 = tallTxt1 + a;
 		}
 		return tallTxt1;
 
@@ -38,31 +35,14 @@ public class Matriser {
 	// c)
 	public static int[][] skaler(int tall, int[][] matrise) {
 
-		/*
-		 * som returnerer en ny matrise der alle tall i matrisen er multiplisert med
-		 * parameteren tall. Metoden må først opprette en ny matrise (fler-dimensjonell
-		 * tabell) som er like stor som parameteren og så multiplisere alle elementer
-		 * med tall.
-		 * 
-		 */
-	
-		int[][] matriseHjelp = matrise;
-	
-		
-		for(int i =0; i < matrise.length; i++) {
-			for(int j =0; j < matrise.length; j++) {
-				matriseHjelp = tall * [j];
-				matrise [i][j]= matriseHjelp;
+		int[][] matriseHjelp = new int[matrise.length][matrise[0].length];
+
+		for (int i = 0; i < matrise.length; i++) {
+			for (int j = 0; j < matrise[i].length; j++) {
+				matriseHjelp[i][j] = tall * matrise[i][j];
 			}
-		} return matrise;
-		
-//		for (int[] rad : matrise) {
-//			for(int x : rad) {
-//				int y = x*tall;
-//				int [] hMAtriseRad = y;
-//			}
-//		} matrise = hMatrise;
-//				return matrise;
+		}
+		return matriseHjelp;
 
 	}
 
@@ -78,38 +58,53 @@ public class Matriser {
 
 		int rad2 = b.length;
 		int kolonne2 = b[0].length;
-		
-		if(rad1 != rad2 || kolonne1 != kolonne2) {
-			return like;
-		}else {
-			for (int i = 0; i < rad1; i++) {
-			for (int j = 0; j < kolonne1; j++) {
-				if(a[i][j] != b[i][j]) {
-					return like;
-				}else {
-					like = true;
-				}
-			
-			}
-		}
 
-	}return like;
+		if (rad1 != rad2 || kolonne1 != kolonne2) {
+			return like;
+		} else {
+			for (int i = 0; i < rad1; i++) {
+				for (int j = 0; j < kolonne1; j++) {
+					if (a[i][j] != b[i][j]) {
+						return like;
+					} else {
+						like = true;
+					}
+
+				}
+			}
+
+		}
+		return like;
 	}
 
 	// e)
 	public static int[][] speile(int[][] matrise) {
 
-		// TODO
+		int[][] matriseNy = new int[matrise.length][matrise[0].length];
 
-		throw new UnsupportedOperationException("Metoden speile ikke implementert");
+		for (int i = 0; i < matrise.length; i++) {
+			for (int j = 0; j < matrise[i].length; j++) {
+				matriseNy[i][j] = matrise[j][i];
+			}
+		}
+
+		return matriseNy;
 
 	}
 
 	// f)
 	public static int[][] multipliser(int[][] a, int[][] b) {
 
-		// TODO
-		throw new UnsupportedOperationException("Metoden multipliser ikke implementert");
+		int[][] matriseNy = new int[a.length][b[0].length];
 
+		for (int i = 0; i < a.length; i++) {
+			for (int j = 0; j < b[0].length; j++) {
+				for (int k = 0; k < a[0].length; k++) {
+					matriseNy[i][j] += a[i][k] * b[k][j];
+				}
+			}
+			
+
+		}return matriseNy;
 	}
 }
